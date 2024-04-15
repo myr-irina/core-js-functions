@@ -17,8 +17,9 @@
  *   getCurrentFunctionName() => 'getCurrentFunctionName'
  *
  */
+
 function getCurrentFunctionName() {
-  throw new Error('Not implemented');
+  return getCurrentFunctionName.name;
 }
 
 /**
@@ -32,8 +33,14 @@ function getCurrentFunctionName() {
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-function getFunctionBody(/* func */) {
-  throw new Error('Not implemented');
+function getFunctionBody(func) {
+  const funcString = func.toString();
+
+  const bodyStart = funcString.indexOf('{') + 1;
+  const bodyEnd = funcString.lastIndexOf('}');
+  const body = funcString.substring(bodyStart, bodyEnd);
+
+  return body;
 }
 
 /**
